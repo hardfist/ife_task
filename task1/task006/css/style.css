@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "SimHei";
+    font-size: 12px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+hr {
+    border: none;
+    border-top: 1px dotted #f00;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 50%;
+}
+
+body {
+    min-width: 980px;
+    height: 1368px;
+}
+
+.main-wrap {
+    margin: 0 auto;
+    width: 892px;
+    background: white;
+}
+
+header {
+    height: 61px;
+    position: relative;
+    border-bottom: 2px solid #938e8c;
+    margin-bottom: 20px;
+}
+
+header > .header-logo {
+    width: 110px;
+    height: 100%;
+    background: #d55d5c;
+}
+
+header > .header-logo .header-logo-text {
+    color: #ffffff;
+    position: absolute;
+    left: 5px;
+    bottom: 2px;;
+}
+
+header > .header-date {
+    color: #d45d5c;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+}
+
+#first {
+    margin-top: 20px;
+}
+
+#first > .first-left {
+    width: 641px;
+    height: 301px;
+    position: relative;
+    float: left;
+}
+
+#first > .first-left > .left-window {
+    width: 191px;
+    height: 301px;
+    background: #9ac481;
+    opacity: 0.7;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+#first > .first-left > .right-window {
+    width: 191px;
+    height: 301px;
+    background: #b59ca8;
+    opacity: 0.7;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+#first > .first-left img {
+    width: 641px;
+    height: 301px;
+}
+
+#first > .first-right {
+    width: 203px;
+    border-top: 2px #cc809c solid;
+    float: right;
+}
+
+#first > .first-right > h3 {
+    font: 24px "Microsoft YaHei";
+    color: #000000;
+    text-decoration: underline;
+    line-height: 40px;
+}
+
+#first > .first-right > .first {
+    font-size: 12px;
+    font-family: KaiTi;
+    line-height: 10px;
+    color: #676767;
+}
+
+#first > .first-right > .second {
+    font-size: 116px;
+    color: #75b86b;
+    font-family: "Microsoft YaHei";
+    font-style: italic;
+
+}
+
+#first > .first-right > .third {
+    font-family: "Microsoft YaHei";
+    color: #cc8091;
+}
+
+#first > .first-right > .third .left {
+    font-size: 55px;
+    font-family: "Microsoft YaHei";
+}
+
+#first > .first-right > .third .right {
+    display: inline-block;
+}
+
+#first > .first-right > .third > .right > .top {
+    font-size: 21px;
+    display: block;
+}
+
+#first > .first-right > .third > .right > .bottom {
+    font-size: 12px;
+    display: block;
+}
+
+#second {
+    width: 641px;
+    margin: 20px;
+}
+
+#second article {
+    width: 33%;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+
+#second article h2 {
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#second article:nth-child(1) h2 {
+    color: #418c59;
+}
+
+#second article:nth-child(2) h2 {
+    color: #d2994f;
+}
+
+#second article:nth-child(3) h2 {
+    color: #cc7680;
+}
+
+#second article:nth-child(3) .tip .left {
+    font: 12px "Microsoft YaHei";
+    color: #231815;
+    margin: 16px;
+    opacity: 0.7;
+}
+
+#second article:nth-child(3) .tip .right {
+    font: 12px "Microsoft YaHei";
+    color: #cd4a48;
+    font-style: italic;
+    margin: 16px;
+    opacity: 0.7;
+}
+
+#second article p {
+    font-size: 12px;
+    color: #767777;
+    font-family: "Songti SC";
+    margin: 16px auto;
+}
+
+#third {
+    width: 641px;
+    margin: 20px;
+}
+
+#third > .left {
+    float: left;
+    width: 415px;
+}
+
+#third > .left > .title {
+
+}
+
+#third > .left > .title {
+    font: 42px "Heiti SC";
+    font-style: italic;
+    margin: 16px auto;
+    border-bottom: 2px solid;
+}
+
+#third > .left > .title h1 {
+    font: 42px "Microsoft YaHei";
+    color: #11456b;
+    font-weight: bold;
+    margin: 16px auto;
+}
+#third > .left > .title h1 span {
+    font: 72px "Heiti SC";
+    font-style: italic;
+    font-weight: bold;
+    color: #f5e327;
+}
+#third > .left .title h2{
+    font: 33px "Heiti SC";
+    font-weight: bold;
+    color: #11456b;
+}
+#third > .left p:first-of-type:first-letter{
+    font-size: 70px;
+    color: #f5e327;
+    font-family: "Microsoft YaHei";
+}
+#third > .left p{
+    font-size: 12px;
+    color: #767777;
+    font-family: "Songti SC";
+    margin: 16px auto;
+}
+#third > .left img{
+    width: 200px;
+    float: right;
+    position: relative;
+    margin: 20px;
+}
+#third > .right {
+    float: left;
+    width: 50%;
+    margin: 20px;
+}
+#third > .right .part1{
+    width: 458px;
+    height: 275px;
+    position: relative;
+}
+#third > .right .part1 img{
+    width: 458px;
+    height: 275px;
+}
+#third > .right .part1 .shadow{
+    height: 61px;
+    width: 458px;
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    bottom: 0;
+    left: 0;
+}
+#third .shadow .wrap{
+    border-left: 3px solid #72b16a;
+    height: 44px;
+    padding-left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+}
+
+#third  .shadow .left{
+    font:26px "Microsoft YaHei";
+    color: #ffffff;
+}
+#third  .shadow .right{
+    font: 12px "Microsoft YaHei";
+    color: #72b16a;
+    word-spacing: 140%;
+    font-style: italic;
+
+}
+#third .part2 {
+    width: 459px;
+    height: 318px;
+    padding: 20px;
+    background: #e7ecc7;
+    box-sizing: border-box;
+}
+
+#third .part2  p .tip{
+    font: 12px "Songti SC";
+    font-style: italic;
+    margin: 20px auto;
+}
+
+#third .part2 p:before{
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid black;
+    margin-right: 4px;
+}
+#third .warn{
+    width: 260px;
+    height: 160px;
+    background: #ca4c50;
+    float: left;
+}
+#third .warn .left{
+    font:110px "Heiti SC";
+    color: #ffffff;
+    line-height: 160px;
+    border-right: 2px solid white;
+    float: left;
+    padding: 20px;
+}
+#third{
+    float: right;
+}
+#third .warn .right h1{
+    font:21px "Heiti SC";
+    color: #ffffff;
+    font-style: italic;
+    margin-top: 24px;
+}
+#third .warn .right h2{
+    font: 12px "Heiti SC";
+    color: #ffffff;
+    margin-top: 6px;
+}
+#third .part2 .quote{
+    display: inline-block;
+    font: 14px "Heiti SC";
+    font-style: italic;
+    margin-top: 16px;
+    width: 100px;
+}
