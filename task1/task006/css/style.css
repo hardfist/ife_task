@@ -195,13 +195,12 @@ header > .header-date {
 #second article p {
     font-size: 12px;
     color: #767777;
-    font-family: "Songti SC";
+    font-family: "SimSun";
     margin: 16px auto;
 }
 
 #third {
-    width: 641px;
-    margin: 20px;
+    box-sizing: border-box;
 }
 
 #third > .left {
@@ -214,38 +213,41 @@ header > .header-date {
 }
 
 #third > .left > .title {
-    font: 42px "Heiti SC";
+    font: 42px "SimHei";
     font-style: italic;
     margin: 16px auto;
     border-bottom: 2px solid;
 }
 
 #third > .left > .title h1 {
-    font: 42px "Microsoft YaHei";
+    font: 42px "SimHei";
     color: #11456b;
     font-weight: bold;
     margin: 16px auto;
+    margin-right: 20px;
 }
 #third > .left > .title h1 span {
-    font: 72px "Heiti SC";
+    font: 72px "SimHei";
     font-style: italic;
     font-weight: bold;
     color: #f5e327;
 }
 #third > .left .title h2{
-    font: 33px "Heiti SC";
+    font: 33px "SimHei";
     font-weight: bold;
     color: #11456b;
 }
-#third > .left p:first-of-type:first-letter{
+#third > .left p:first-of-type:first-letter {
+    float: left;
     font-size: 70px;
     color: #f5e327;
+    margin: 10px;
     font-family: "Microsoft YaHei";
 }
 #third > .left p{
     font-size: 12px;
     color: #767777;
-    font-family: "Songti SC";
+    font-family: "SimSun";
     margin: 16px auto;
 }
 #third > .left img{
@@ -255,9 +257,9 @@ header > .header-date {
     margin: 20px;
 }
 #third > .right {
-    float: left;
-    width: 50%;
-    margin: 20px;
+    float: right;
+    width: 458px;
+    box-sizing: border-box;
 }
 #third > .right .part1{
     width: 458px;
@@ -300,22 +302,39 @@ header > .header-date {
 #third .part2 {
     width: 459px;
     height: 318px;
-    padding: 20px;
     background: #e7ecc7;
+    padding-top: 20px;
     box-sizing: border-box;
+    margin-top: 40px;
+    position: relative;
+}
+#third .part2 .para{
+    margin: 20px;
+    position: relative;
 }
 
-#third .part2  p .tip{
-    font: 12px "Songti SC";
+#third .part2 .para .left{
+    font: 16px "SimSun";
+    text-align: left;
+    color: #5a5b5b;
+    position: absolute;
+    left: 0;
+    background:#e7ecc7;
+}
+#third .part2 .para .right{
+    font: 12px "SimSun";
+    color: #5a5b5b;
     font-style: italic;
-    margin: 20px auto;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    background: #e7ecc7;
 }
-
-#third .part2 p:before{
+#third .part2 .para .left .tip1:before{
     content: "";
-    display: inline-block;
     height: 0;
     width: 0;
+    display: inline-block;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 10px solid black;
@@ -325,34 +344,54 @@ header > .header-date {
     width: 260px;
     height: 160px;
     background: #ca4c50;
-    float: left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 20px;
+    line-height: 100%;
 }
-#third .warn .left{
-    font:110px "Heiti SC";
+#third .warn .wrap{
+    position: absolute;
+    height: 120px;
+    width: 260px;
+    background: blue;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#third .warn .wrap .left{
+    font:110px "SimHei";
     color: #ffffff;
-    line-height: 160px;
-    border-right: 2px solid white;
-    float: left;
-    padding: 20px;
+    padding-right: 2px;
+    display: inline-block;
+    vertical-align: middle;
 }
-#third{
-    float: right;
+#third .warn .wrap .line{
+    border-left: 2px solid white;
+    height: 86px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#third .warn .wrap .right{
+    height: 125px;
+    display: inline-block;
+    vertical-align: middle;
 }
 #third .warn .right h1{
-    font:21px "Heiti SC";
+    font:21px "SimHei";
     color: #ffffff;
     font-style: italic;
-    margin-top: 24px;
 }
 #third .warn .right h2{
-    font: 12px "Heiti SC";
+    font: 12px "SimHei";
     color: #ffffff;
-    margin-top: 6px;
 }
 #third .part2 .quote{
-    display: inline-block;
-    font: 14px "Heiti SC";
+    font: 14px "SimHei";
     font-style: italic;
-    margin-top: 16px;
-    width: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    height: 160px;
 }
