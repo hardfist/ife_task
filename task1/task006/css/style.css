@@ -341,57 +341,79 @@ header > .header-date {
     margin-right: 4px;
 }
 #third .warn{
-    width: 260px;
     height: 160px;
+    line-height: 160px;
     background: #ca4c50;
     position: absolute;
+    padding: 10px;
     left: 0;
     bottom: 0;
-    padding-left: 20px;
-    line-height: 100%;
 }
-#third .warn .wrap{
-    position: absolute;
-    height: 120px;
-    width: 260px;
-    background: blue;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-#third .warn .wrap .left{
-    font:110px "SimHei";
-    color: #ffffff;
-    padding-right: 2px;
+#third .warn .left{
     display: inline-block;
+    font: 110px "Microsoft YaHei";
+    color: #ffffff;
     vertical-align: middle;
 }
-#third .warn .wrap .line{
-    border-left: 2px solid white;
+#third .warn .line{
+    display: inline-block;
+    width: 2px;
+    height: 86px;
+    background: white;
+    vertical-align: middle;
+}
+#third .warn .right{
     height: 86px;
     display: inline-block;
+    line-height: 1.2;
     vertical-align: middle;
-}
-#third .warn .wrap .right{
-    height: 125px;
-    display: inline-block;
-    vertical-align: middle;
-}
-#third .warn .right h1{
-    font:21px "SimHei";
-    color: #ffffff;
-    font-style: italic;
 }
 #third .warn .right h2{
-    font: 12px "SimHei";
+    font: 21px "SimSun";
+    font-style: italic;
     color: #ffffff;
 }
-#third .part2 .quote{
-    font: 14px "SimHei";
-    font-style: italic;
+#third .warn .right p{
+    font: 12px "SimSun";
+    color: #ffffff;
+    margin: 6px;
+
+}
+#third .quotes{
+    width: 178px;
+    height: 160px;
     position: absolute;
     right: 0;
-    bottom: 0;
-    width: 260px;
-    height: 160px;
+    bottom: 20px;
+}
+#third .quotes p{
+    font: 14px "SimHei";
+    color: #5a5b5b;
+    font-style: italic;
+    line-height: 16px;
+}
+#third .quotes span{
+    position: absolute;
+    font: 72px "SimHei";
+    color : #d45d5c;
+}
+#third .quotes .left-quote{
+    left: -50px;
+}
+#third .quotes .right-quote{
+}
+#third .quotes span.placeholder{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: static;
+}
+footer {
+    border-top: 1px solid #938e8c;
+    height: 61px;
+}
+footer .note{
+    font: 12px "SimHei";
+    color: #d45d5c;
+    float:right;
 }
