@@ -28,10 +28,19 @@
 </body>
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
 <script>
+    var rInteger = /^[0-9]\d*$/
     $("#push_left").on("click",function(){
+        if(!rInteger.test($("#input").val())){
+            alert("输入的数字必须为整数")
+            return
+        }
         $("<div></div>").addClass("box").text($("#input").val()).prependTo($("#queue"))
     })
     $("#push_right").on("click",function(){
+        if(!rInteger.test($("#input").val())){
+            alert("输入的数字必须为整数")
+            return
+        }
         $("<div></div>").addClass("box").text($("#input").val()).appendTo($("#queue"))
     })
     $("#pop_left").on("click",function(){
