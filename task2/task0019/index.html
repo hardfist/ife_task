@@ -60,7 +60,6 @@
             alert("元素不能超过60个,无法添加")
         }
         var $wrap = $("<div class='wrap'></div>")
-                .data('value', $("#input").val())
                 .prependTo($("#queue"))
         $("<div class='box'></div>")
                 .addClass("box")
@@ -83,7 +82,6 @@
             alert("元素不能超过60个,无法添加")
         }
         var $wrap = $("<div class='wrap'></div>")
-                .data('value', $("#input").val())
                 .appendTo($("#queue"))
         $("<div class='box'></div>")
                 .addClass("box")
@@ -91,7 +89,6 @@
                     height: $("#input").val()
 
                 })
-                .data("value", $("#input").val())
                 .appendTo($wrap)
     })
 
@@ -100,7 +97,7 @@
      */
     $("#pop_left").on("click", function () {
         $("#queue .wrap:first-child").each(function (i, el) {
-            alert($(this).data("value"))
+            alert(valueOfEl(el))
         }).remove()
     })
 
@@ -109,7 +106,7 @@
      */
     $("#pop_right").on("click", function () {
         $("#queue .wrap:last-child").each(function (i, el) {
-            alert($(this).data("value"))
+            alert(valueOfEl(el))
         }).remove()
     })
 
@@ -118,11 +115,12 @@
      */
     $("#bubble_sort").on("click", function () {
         gen = bubble_sort($("#queue > *"),valueOfEl,swap_div)
+        var interval = 100
         var timer = setTimeout(function(){
             if(!gen.next().done){
-                setTimeout(arguments.callee)
+                setTimeout(arguments.callee,interval)
             }
-        },1000)
+        },interval)
     })
     /**
      * 随机插入一些元素,以供排序使用
@@ -136,14 +134,20 @@
      * 交换两个div的位置
      */
     function swap_div(arr, front, after) {
-        $(arr[front]).after($(arr[after]))
+        var height = valueOfEl(arr[front])
+        $(arr[front]).find('.box').height($(arr[after]).find('.box').height())
+        $(arr[after]).find('.box').height(height)
     }
 
     /**
      * 获取el的用于排序的值,此处为高度
      */
-    function valueOfEl(el){
-        return parseInt($(el).data("value"))
+    function valueOfEl(el,value){
+        if(typeof value == 'undefined') {
+            return parseInt($(el).find(".box").height())
+        }else{
+            $(el).find(".box").height(value)
+        }
     }
 
     /**
