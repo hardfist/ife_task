@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap {
+            width: 20px;
+            height: 200px;
+            position: relative;
+            display: inline-block;
+            margin: 1px;
+        }
+
+        .box {
+            position: absolute;
+            width: 20px;
+            bottom: 0;
+            background: red;
+        }
+
+        .container {
+            height: 100px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<input id="input" type="text">
+<button id="push_left">左侧入</button>
+<button id="push_right">右侧入</button>
+<button id="pop_left">左侧出</button>
+<button id="pop_right">右侧出</button>
+<button id="bubble_sort">冒泡排序</button>
+<button id="random_insert">随机插入</button>
+<button id="clear">清空</button>
+<div id="queue" class="container">
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+<script>
+    var rInteger = /(?:^(?:[1-9][0-9])|100)$/ //在10-100的整数
+
+    /**
+     * 清空所有元素
+     */
+    $("#clear").on("click", function () {
+        $("#queue").empty()
+    })
+
+    /**
+     * 左侧插入
+     */
+    $("#push_left").on("click", function () {
+        if (!rInteger.test($("#input").val())) {
+            alert("输入的数字必须在10-100")
+            return
+        }
+        if ($("#queue").children().length > 60) {
+            alert("元素不能超过60个,无法添加")
+        }
+        var $wrap = $("<div class='wrap'></div>")
+                .data('value', $("#input").val())
+                .prependTo($("#queue"))
+        $("<div class='box'></div>")
+                .addClass("box")
+                .css({
+                    height: $("#input").val()
+                })
+
+                .appendTo($wrap)
+    })
+
+    /**
+     * 右侧插入
+     */
+    $("#push_right").on("click", function () {
+        if (!rInteger.test($("#input").val())) {
+            alert("输入的数字必须在10-100")
+            return
+        }
+        if ($("#queue").children().length > 60) {
+            alert("元素不能超过60个,无法添加")
+        }
+        var $wrap = $("<div class='wrap'></div>")
+                .data('value', $("#input").val())
+                .appendTo($("#queue"))
+        $("<div class='box'></div>")
+                .addClass("box")
+                .css({
+                    height: $("#input").val()
+
+                })
+                .data("value", $("#input").val())
+                .appendTo($wrap)
+    })
+
+    /**
+     * 左侧出
+     */
+    $("#pop_left").on("click", function () {
+        $("#queue .wrap:first-child").each(function (i, el) {
+            alert($(this).data("value"))
+        }).remove()
+    })
+
+    /**
+     * 右侧出
+     */
+    $("#pop_right").on("click", function () {
+        $("#queue .wrap:last-child").each(function (i, el) {
+            alert($(this).data("value"))
+        }).remove()
+    })
+
+    /**
+     * 冒泡排序
+     */
+    $("#bubble_sort").on("click", function () {
+        gen = bubble_sort($("#queue > *"),valueOfEl,swap_div)
+        var timer = setTimeout(function(){
+            if(!gen.next().done){
+                setTimeout(arguments.callee)
+            }
+        },1000)
+    })
+    /**
+     * 随机插入一些元素,以供排序使用
+     */
+    $("#random_insert").on("click", function () {
+        $("#queue").empty()
+        random_insert()
+    })
+
+    /**
+     * 交换两个div的位置
+     */
+    function swap_div(arr, front, after) {
+        $(arr[front]).after($(arr[after]))
+    }
+
+    /**
+     * 获取el的用于排序的值,此处为高度
+     */
+    function valueOfEl(el){
+        return parseInt($(el).data("value"))
+    }
+
+    /**
+     * 冒泡排序例程:
+     */
+    function* bubble_sort(a, valueOf, swap) {
+        for (var i = 1; i < a.length; i++) {
+            for(var j=i; j > 0 && valueOf(a[j]) < valueOf(a[j-1]); j--){
+                yield swap(a,j,j-1)
+            }
+        }
+    }
+
+    /**
+     * 初始化
+     */
+    function random_insert() {
+        var arr = []
+        for (var i = 0; i < 20; i++) {
+            arr.push(Math.floor(Math.random() * 90) + 10)
+            $("#input").val(arr[i])
+            $("#push_right").trigger("click")
+        }
+    }
+</script>
+</html>
