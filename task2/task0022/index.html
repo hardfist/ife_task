@@ -6,18 +6,28 @@
     <style>
         .box{
             border: 1px solid black;
-            width: 1200px;
-            height: 200px;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;
             padding: 10px;
             box-sizing: border-box;
+            background: #ffffff;
         }
         #container{
             border: none;
+            width: 100%;
+            height: 400px;
+        }
+        #node_num{
+            width: 2em;
+        }
+        #node_num_label{
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
+<label id="node_num_label" for="node_num">节点数:<input id="node_num" type="text"></label>
 <button id="build_tree">随机生成树</button>
 <button id="inorder">中序遍历</button>
 <button id="preorder">先序遍历</button>
