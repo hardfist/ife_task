@@ -222,14 +222,14 @@ function init(){
     var $dom = $("#ship")
     var ship = new Box($dom)
     $("#execute").on("click",function(){
-        var commands = $("#commands").val().split('\n')
+        var commands = $("#commands_input").val().split('\n')
             .map( el => el.trim())
         for(var command of commands){
             ship.run_command(command)
         }
     })
-    $("#commands").on("keyup",function(){
-        var commands = $("#commands").val().split('\n')
+    $("#commands_input").on("keyup",function(){
+        var commands = $("#commands_input").val().split('\n')
             .map(el => el.trim())
         $("#line_num").empty()
         //生成行号
@@ -243,11 +243,11 @@ function init(){
         }
     })
     //滚动条同步
-    $("#commands").on("scroll",function(){
+    $("#commands_input").on("scroll",function(){
         $("#line_num").scrollTop($(this).scrollTop())
     })
     $("#line_num").on("scroll",function(){
-        $("#commands").scrollTop($(this).scrollTop())
+        $("#commands_input").scrollTop($(this).scrollTop())
     })
 }
 init()

@@ -1,8 +1,10 @@
 /**
  * Created by yj on 16/3/28.
  */
-var width = 10
-var height = 10
+var x_limit= 10
+var y_limit = 10
+var box_height = 40
+var box_width = 40
 class Box{
     constructor($dom){
         //初始状态
@@ -15,10 +17,17 @@ class Box{
     }
     render(){
         //位置
-        this.$dom.css({
+        /*
+        this.$dom.animation({
             left: 40*this.x,
             top: 40*this.y
+        },1000)
+        */
+        this.$dom.css({
+            left: this.x*box_width,
+            top: this.y*box_height,
         })
+        
         //方向
         var prop
         switch(this.direction){
@@ -66,7 +75,7 @@ class Box{
                 }
                 break
             case 'bottom':
-                if(this.y<9) {
+                if(this.y<y_limit-1) {
                     this.y++
                 }
                 break
@@ -76,7 +85,7 @@ class Box{
                 }
                 break
             case 'right':
-                if(this.x < 9) {
+                if(this.x < x_limit-1) {
                     this.x++
                 }
         }
