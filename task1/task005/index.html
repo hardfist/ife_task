@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, h4, p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        header {
+            background: #2e2e2e;
+            height: 60px;
+            position: relative;
+        }
+
+        header nav {
+            position: absolute;
+            right: 0;
+            top: 20px;
+        }
+
+        header nav li {
+            list-style-type: none;
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #content {
+            background: #d7d7d7;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 20px 10px;
+            margin: 20px 0;
+            box-shadow: 2px 2px 2px #767676;
+        }
+
+        section > p {
+            text-indent: 2em;
+        }
+
+        #logo {
+            height: 40px;
+            width: 120px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: white;
+            font-size: 20px;
+        }
+
+        #second > ul {
+            margin-left: 20px;
+            list-style-type: none;
+        }
+
+        #third div {
+            padding: 10px;
+            border: 1px #eaeaea solid;
+            float: left;
+            clear: both;
+            margin: 10px;
+        }
+
+        #third div img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #third div p {
+            text-align: center;
+        }
+
+        #fourth ol {
+            margin-left: 40px;
+        }
+
+        #fourth table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #fourth table tr:first-child {
+            background: #2e2e2e;
+            color: white;
+        }
+
+        #fourth table tr:last-child {
+            background: #c3c3c3;
+        }
+
+        #fourth table tr td {
+            border: none;
+        }
+
+        #fifth > h3 {
+            border-left: 2px solid #bfbfbf;
+            padding: 2px;
+        }
+
+        #fifth > form {
+            position: relative;
+        }
+
+        #fifth > form .form-left {
+            display: inline-block;
+            text-align: right;
+            width: 40%;
+            margin-right: 1em;
+            margin-top: 0.6em;
+
+        }
+
+        #fifth > form .form-right {
+            display: inline-block;
+            text-align: left;
+            margin-top: 0.6em;
+            vertical-align: top;
+        }
+
+        #fifth > form .form-right > * {
+            margin-left: 5px;
+        }
+
+        #fifth > form #submit {
+            width: 100%;
+            height: 30px;
+            background: #2b50c3;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .prompt {
+            color: #d7d7d7
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        footer {
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background: #0b0b0b;
+            color: white;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            float: left;
+        }
+
+        .main-wrapper .main {
+            margin-right: 420px;
+        }
+
+        .sidebar {
+            width: 400px;
+            float: left;
+            margin-left: -400px;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div id="logo">
+        棉花糖
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">导航链接一</a></li>
+            <li><a href="#">导航链接二</a></li>
+            <li><a href="#">导航链接三</a></li>
+            <li><a href="#">导航链接四</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="content" class="clearfix">
+    <div class="main-wrapper">
+        <div class="main">
+            <section id="first">
+                <h2>文章一级标题</h2>
+                <h3>文章二级标题</h3>
+                <h4>杨健 2016年3月</h4>
+                <p>
+                    这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落
+                </p>
+                <img src="img/1.jpg">
+                <p>
+                    这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落,这是一个很长很长的段落
+                </p>
+            </section>
+            <section id="second" class="clearfix">
+                <h2>另一篇文章一级标题</h2>
+                <h3>文章二级标题</h3>
+                <h4>杨健 2016年3月</h4>
+                <p>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                </p>
+                <img src="img/1.jpg">
+                <p>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                    这是一个很长很长的段落,这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落,换行了<br>
+                </p>
+                <ul>
+                    <li>列表项目一</li>
+                    <li>列表项目二</li>
+                    <li>列表项目三</li>
+                </ul>
+            </section>
+
+            <section id="third" class="clearfix">
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+                <div>
+                    <p>好看的图片</p>
+                    <img src="img/1.jpg">
+                </div>
+            </section>
+            <section id="fourth">
+                <h2>最后一篇文章一级标题</h2>
+                <h3>文章二级标题</h3>
+                <h4>健健 2016年3月</h4>
+                <ol>
+                    <li>排名1</li>
+                    <li>排名2</li>
+                    <li>排名3</li>
+                </ol>
+                <table border="1">
+                    <caption>这是一个表格</caption>
+                    <tr>
+                        <th>表头</th>
+                        <th>表头</th>
+                        <th>表头</th>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="#">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="#">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="#">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="#">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            总计
+                        </td>
+                        <td colspan="2">
+                            1000
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+    <section id="fifth" class="sidebar">
+        <h3>这里以后是一个侧栏,这是侧栏的标题</h3>
+        <form action="#" onsubmit="return false">
+            <div>
+                <div class="form-left">请输入邮箱地址</div>
+                <div class="form-right">
+                    <input id="email" type="text" placeholder="这是一个文本输入框"><br>
+                    <p class="prompt">邮箱地址请按要求格式输入</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="form-left">请输入密码</div>
+                <div class="form-right">
+                    <input type="text" id="password">
+                </div>
+            </div>
+            <div>
+                <div class="form-left">请重复输入密码</div>
+                <div class="form-right">
+                    <input type="text" id="password2">
+                    <p class="prompt">密码请为6-16位英文数字</p>
+                </div>
+            </div>
+            <div>
+                <div class="form-left">性别</div>
+                <div class="form-right">
+                    <input type="radio">男
+                    <input type="radio">女
+                </div>
+            </div>
+            <div>
+                <div class="form-left">城市</div>
+                <div class="form-right">
+                    <select>
+                        <option value="北京">北京</option>
+                        <option value="南京">南京</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="form-left">爱好</div>
+                <div class="form-right">
+                    <input type="checkbox">运动
+                    <input type="checkbox">艺术
+                    <input type="checkbox">科学
+                </div>
+            </div>
+
+            <div>
+                <div class="form-left">个人描述</div>
+                <div class="form-right">
+                <textarea>
+                    这是一个多行输入框,输入您的个人描述.
+                </textarea>
+                </div>
+            </div>
+            <input id="submit" type="submit" value="确认提交">
+        </form>
+    </section>
+
+</div>
+<footer>
+    版权所有&copy
+</footer>
+</body>
+</html>
