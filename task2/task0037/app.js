@@ -1,10 +1,43 @@
 /**
  * Created by yj on 16/4/1.
  */
-class Editor{
-    constructor(selector){
-        this.element = $(selector)
-        this.$lines = this.element.()
+class Editor {
+    constructor(selector) {
+        this.$element = $(selector)
+        this.$lines = this.$element.find('.command_lines')
+        this.$textarea = this.$element.find('.commander_editor')
+        this.init()
+        this.update()
+    }
+
+    /**
+     * 事件绑定
+     */
+    init() {
+        this.$textarea.on('input', this.update.bind(this))
+        this.$textarea.on('scroll', this.scroll.bind(this))
+    }
+    /**
+     * 代码行数同步滚动
+     */
+    scroll(event) {
+        //todo
+    }
+
+    /**
+     * 滚动到指定行数
+     */
+    scrollTo(line){
+        this.$textarea.scrollTop = line*20
+    }
+
+    update(){
+        var codes = this.$textarea.val()
+        var lines = codes.match(/\n/g)
+        lines = lines ? lines.length+1 : 1
+        for(var l=1;l<lines;l++){
+            $("<div></div>").addClass("commander-lines-item").text(l).appendTo(this.$lines)
+        }
     }
 }
 class Application{

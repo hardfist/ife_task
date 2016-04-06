@@ -38,13 +38,23 @@ class Box {
             'BUILD': this.build
         })
     }
-
+    delay(func){
+        return new Promise((resolve,reject) =>{
+            var res = func()
+            setTimeout(()=>{
+                resolve()
+            },1000)
+        })
+    }
     //运行接收的命令
-    run_command(command) {
+    async run_command(command) {
         if (typeof this.commands[command] == 'function') {
             var command = this.commands[command]
-            command.call(this)
-            this.render()
+            command = command.bind(this)
+            var res = await this.delay(() => {
+                command()
+                this.render()
+            })
         }
     }
 
@@ -323,8 +333,8 @@ class Box {
 
     }
     //寻路  todo
-    moveto(){
-
+    moveto(x,y){
+        var queue = []
     }
 }
 //判断指令是否有效
@@ -386,5 +396,6 @@ function init() {
     $("#line_num").on("scroll", function () {
         $("#commands_input").scrollTop($(this).scrollTop())
     })
+    $
 }
 init()
