@@ -2,38 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
     <style>
-        label{
+        label {
             font-size: 20px;
             font-weight: bold;
+            vertical-align: middle;
         }
-        a{
-            text-decoration: none;
+
+        input {
+            height: 40px;
+            margin-left: 20px;
+            width: 400px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            vertical-align: middle;
+            border: 2px solid grey;
+        }
+
+        a {
+            margin-left: 40px;
+            display: inline-block;
+            height: 40px;
+            background: #2c6aae;
+            font-size: 20px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            vertical-align: middle;
+            line-height: 40px;
             color: white;
-            background: #2c69ae;
+            text-decoration: none;
         }
-        input{
-            height: 2em;
-            width: 16em;
-            border: 2px solid #c2c2c2
+        .prompt{
+            font-size: 20px;
+            display: inline-block;
+            position: absolute;
+            margin-left: -400px;
+            margin-top: 50px;
+            color:#9f9f9f
         }
-        .valid{
-            border: 2px solid #d52d24
+        input.error {
+            border: 2px solid red;
         }
-        .invalid{
-            border: 2px solid #68bd58
+        input.success {
+            border: 2px solid green;
+        }
+        .prompt.error{
+            color: red;
+        }
+        .prompt.success{
+            color: green;
         }
     </style>
 </head>
 <body>
-<div id="form">
-    <label>姓名<input id="name_input" type="text"></label>
-    <a id="valid" href="javascript:;">验证</a>
-    <p>必填,长度为4-16个字符</p>
-</div>
-<script>
-
-</script>
+<form>
+    <label for="username">名称</label>
+    <input id="username"  class='normal' type="text"/>
+    <div class="prompt">必填,长度为4~16个字符</div>
+    <a id="validate" href="#">验证</a>
+</form>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
