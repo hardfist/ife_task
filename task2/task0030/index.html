@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.container{
+            margin-top: 50px;
+        }
+        input{
+            display: inline-block;
+            height: 40px;
+            width: 400px;
+            margin-left: 20px;
+            font-size: 20px;
+            border-radius: 5px;
+            border: 2px solid grey;
+        }
+        label{
+            text-align: right;
+            width: 80px;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        div.prompt{
+            position: absolute;
+            margin-left: -400px;
+            margin-top: 50px;
+            display: inline-block;
+            color: grey;
+            font-size: 20px;
+        }
+        #submit{
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px 20px;
+            position: relative;
+            left: 400px;
+            background: #2c69ae;
+            border-radius: 5px;
+        }
+        input.error{
+            border: 2px solid red;
+        }
+        label.error{
+            color: red;
+        }
+        input.success{
+            border: 2px solid green;
+        }
+        input.error{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<form id="test" method="get" action="index.html">
+    <div  id="username-wrap" class="container">
+        <label for="username">名称</label>
+        <input id="username" type="text">
+        <div class="prompt"></div>
+    </div>
+    <div id="password-wrap" class="container">
+        <label for="password">密码</label>
+        <input id="password" type="text">
+        <div class="prompt"></div>
+    </div>
+    <div id="password2-wrap" class="container">
+        <label for="password2">密码确认</label>
+        <input id="password2">
+        <div class="prompt"></div>
+    </div>
+    <div id="email-wrap" class="container">
+        <label for="email">邮箱</label>
+        <input id="email">
+        <div class="prompt"></div>
+    </div>
+    <div id="phonenum-wrap" class="container">
+        <label for="phonenum">手机</label>
+        <input id="phonenum">
+        <div class="prompt"></div>
+    </div>
+    <button id="submit" type="submit">提交</button>
+</form>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
