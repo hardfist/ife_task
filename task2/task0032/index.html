@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .wrapper{
-            margin-top: 60px;
+        #generator label{
+            font-size: 20px;
+            margin-right: 10px;
+            float: left;
         }
-        label{
+        #generator input[type="button"]{
+            font-size: 20px;
+        }
+        #container .wrapper{}
+        #container .wrapper {
+            margin-top: 60px;
+            float: left;
+        }
+
+        #container label {
             display: inline-block;
             width: 100px;
             text-align: right;
             font-size: 20px;
         }
-        input{
+
+        #container input {
             height: 40px;
             width: 400px;
             border-radius: 5px;
@@ -21,7 +33,8 @@
             margin-left: 40px;
             font-size: 20px;
         }
-        .prompt{
+
+        #container .prompt {
             position: absolute;
             display: inline-block;
             height: 40px;
@@ -29,22 +42,41 @@
             margin-top: 50px;
             font-size: 20px;
         }
-        input.error{
+
+        #container input.error {
             border: 2px solid red;
         }
-        input.success{
+
+        #container input.success {
             border: 2px solid green;
         }
-        .prompt.error{
+
+        #container .prompt.error {
             color: red;
         }
-        .prompt.success{
+
+        #container .prompt.success {
             color: green;
+        }
+        #container .submit{
+            font-size: 20px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #5487c4;
+            margin-left: 470px;
+        }
+        #container.style1 input{
+            background: antiquewhite;
+        }
+        #container.style2 input{
+            background: aqua;
         }
     </style>
 </head>
 <body>
-<form>
+<div id="generator">
+</div>
+<form id="container">
 </form>
 <script src="../../bower_components/jquery/dist/jquery.js"></script>
 <script src="main.js"></script>
