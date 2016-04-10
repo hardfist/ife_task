@@ -2,9 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>行星与飞船</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="wrapper">
+    <!-- 操作面板 -->
+    <div id="control">
+        <div id="control-title" draggable="true">控制面板</div>
+        <div id="control-main">
+            <div data-id="0" class="panel">
+                <span>第一轨道</span>
+                <button class="create">创建飞船</button>
+                <button class="destroy">销毁飞船</button>
+                <button class="fly">飞行</button>
+                <input class="speed" type="text" placeholder="速度">
+                <button class="set-speed">设置速度</button>
+            </div>
+            <div data-id="1" class="panel">
+                <span>第二轨道</span>
+                <button class="create">创建飞船</button>
+                <button class="destroy">销毁飞船</button>
+                <button class="fly">飞行</button>
+                <input class="speed" type="text" placeholder="速度">
+                <button class="set-speed">设置速度</button>
+            </div>
+            <div data-id="2" class="panel">
+                <span>第三轨道</span>
+                <button class="create">创建飞船</button>
+                <button class="destroy">销毁飞船</button>
+                <button class="fly">飞行</button>
+                <input class="speed" type="text" placeholder="速度">
+                <button class="set-speed">设置速度</button>
+            </div>
+            <div data-id="3" class="panel">
+                <span>第四轨道</span>
+                <button class="create">创建飞船</button>
+                <button class="destroy">销毁飞船</button>
+                <button class="fly">飞行</button>
+                <input class="speed" type="text" placeholder="速度">
+                <button class="set-speed">设置速度</button>
+            </div>
+        </div>
 
+    </div>
+    <!-- 指挥官 -->
+    <div id="commander"></div>
+    <!-- 轨道  -->
+    <div id="orbit0" class="orbit">
+        <div class="ship">
+            <div class="ship-title"></div>
+            <div class="ship-mask"></div>
+        </div>
+    </div>
+    <div id="orbit1" class="orbit">
+        <div class="ship">
+            <div class="ship-title"></div>
+            <div class="ship-mask"></div>
+        </div>
+    </div>
+    <div id="orbit2" class="orbit">
+        <div class="ship">
+            <div class="ship-title"></div>
+            <div class="ship-mask"></div>
+        </div>
+    </div>
+    <div id="orbit3" class="orbit">
+        <div class="ship">
+            <div class="ship-title"></div>
+            <div class="ship-mask"></div>
+        </div>
+    </div>
+    <div id="console" draggable="true">
+        <div id="console-title">Console 控制台</div>
+        <div id="console-panel">
+        </div>
+    </div>
+</div>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

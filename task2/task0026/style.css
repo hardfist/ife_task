@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body,#wrapper{
+    height: 100%;
+    background: antiquewhite;
+}
+#wrapper{
+    position: relative;
+}
+#commander,
+.orbit{
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid #000;
+}
+#commander{
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+#orbit0{
+    width: 200px;
+    height: 200px;
+}
+#orbit1{
+    width: 300px;
+    height: 300px;
+}
+#orbit2{
+    width: 400px;
+    height: 400px;
+}
+#orbit3{
+    width: 500px;
+    height: 500px;
+}
+#orbit0 .ship{
+    transform-origin:0 100px ;
+}
+#orbit1 .ship{
+    transform-origin: 0 150px;
+}
+#orbit2 .ship{
+    transform-origin: 0 200px;
+}
+#orbit3 .ship{
+    transform-origin: 0 250px;
+}
+#control{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+    background: rgba(255,255,255,0.5);
+}
+#control-title{
+    background: blue;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+#console{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    height: 150px;
+    background: rgba(255,255,255,0.5);
+}
+#console-title{
+    background:blue;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.ship{
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    border: 1px solid white;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.ship .ship-mask{
+    position: absolute;
+    left: 0;
+    top:0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255,0,0,0.5)
+}
