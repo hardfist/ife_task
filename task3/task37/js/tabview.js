@@ -1,9 +1,31 @@
 /**
  * Created by yj on 16/4/11.
  */
-class Window {
+class Widget{
+    constructor(){
+        //监听事件字典
+        this.handlers = {}
+    }
+    //监听事件
+    on(type,handler){
+        this.handlers[type] || (this.handlers[type] = [])
+        this.handlers[type].push(handler)
+        return this
+    }
+    //触发事件
+    fire(type,data){
+        let handlers = this.handlers[type] || []
+        for(let handler of handlers){
+            handler(data)
+        }
+        return this
+    }
+}
+class Window extends Widget{
     constructor() {
+        super()
         //默认配置
+
         this.cfg = {
             title: "标题",
             content: "",
@@ -21,8 +43,6 @@ class Window {
             draggable: true,
             dragHandle: ".window_header"
         }
-        //监听的事件列表
-        this.handlers = {}
     }
     alert(cfg) {
         //配置属性
@@ -111,20 +131,7 @@ class Window {
         })
         return this 
     }
-    //监听事件
-    on(type,handler){
-        this.handlers[type] || (this.handlers[type] = [])
-        this.handlers[type].push(handler)
-        return this 
-    }
-    //触发事件
-    fire(type,data){
-        let handlers = this.handlers[type] || []
-        for(let handler of handlers){
-            handler(data)
-        }
-        return this 
-    }
+    
 }
 
 class Application {
