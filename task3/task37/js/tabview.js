@@ -6,7 +6,7 @@ class Widget {
     constructor() {
         //监听事件字典
         this.boundingBox = null
-        this.handlers = {}
+        this.listeners = {}
 
     }
 
@@ -17,8 +17,8 @@ class Widget {
      * @returns {Widget}
      */
     on(type, handler) {
-        this.handlers[type] || (this.handlers[type] = [])
-        this.handlers[type].push(handler)
+        this.listeners[type] || (this.listeners[type] = [])
+        this.listeners[type].push(handler)
         return this
     }
 
@@ -29,7 +29,7 @@ class Widget {
      * @returns {Widget}
      */
     fire(type, data) {
-        let handlers = this.handlers[type] || []
+        let handlers = this.listeners[type] || []
         for (let handler of handlers) {
             handler(data)
         }
@@ -62,7 +62,7 @@ class Widget {
      */
     render(container) {
         this.renderUI()
-        this.handlers = {} //清空监听事件
+        this.listeners = {} //清空监听事件
         this.bindUI()
         this.syncUI()
         $(container || document.body).append(this.boundingBox)
