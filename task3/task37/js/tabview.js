@@ -22,7 +22,7 @@ class Window {
             dragHandle: ".window_header"
         }
         //监听的事件列表
-        this.handlers = []
+        this.handlers = {}
     }
     alert(cfg) {
         //配置属性
@@ -109,12 +109,13 @@ class Window {
             left: this.cfg.x || '50%',
             top: this.cfg.y || '50%'
         })
-
+        return this 
     }
     //监听事件
     on(type,handler){
         this.handlers[type] || (this.handlers[type] = [])
         this.handlers[type].push(handler)
+        return this 
     }
     //触发事件
     fire(type,data){
@@ -122,6 +123,7 @@ class Window {
         for(let handler of handlers){
             handler(data)
         }
+        return this 
     }
 }
 
@@ -132,8 +134,8 @@ class Application {
     //初始化
     init() {
         $('#btn').on('click', function () {
-            let tab = new Window()
-            tab.alert({
+            let win = new Window()
+            win.alert({
                 content: '这是一个弹窗',
                 handler4ConfirmBtn: function () {
                     alert('你点击了确认按钮')
@@ -143,6 +145,8 @@ class Application {
                 },
                 hasCloseBtn: true
             })
+            win.on('confirm',() =>{console.log('log: confirm')})
+            win.on('close',() => {console.log('log:close')})
         })
     }
 }
