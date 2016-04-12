@@ -4,15 +4,29 @@
 class Widget{
     constructor(){
         //监听事件字典
+        this.boundingBox = null
         this.handlers = {}
+
     }
-    //监听事件
+
+    /**
+     * 监听事件
+     * @param type
+     * @param handler
+     * @returns {Widget}
+     */
     on(type,handler){
         this.handlers[type] || (this.handlers[type] = [])
         this.handlers[type].push(handler)
         return this
     }
-    //触发事件
+
+    /**
+     * 触发事件
+      * @param type
+     * @param data
+     * @returns {Widget}
+     */
     fire(type,data){
         let handlers = this.handlers[type] || []
         for(let handler of handlers){
@@ -20,12 +34,61 @@ class Widget{
         }
         return this
     }
+
+    /**
+     * 添加dom节点
+     */
+    renderUI(){
+    }
+
+    /**
+     * 监听事件
+     */
+    bindUI(){
+
+    }
+
+    /**
+     * 初始化组件属性
+     */
+    syncUI(){
+
+    }
+
+    /**
+     * 渲染组件
+     * @param container
+     */
+    render(container){
+        this.renderUI()
+        this.handlers = {} //清空监听事件
+        this.bindUI()
+        this.syncUI()
+        $(container || document.body).append(this.boundingBox)
+        return this
+    }
+
+    /**
+     * 接口:销毁前的处理函数,
+     */
+    destructor(){
+
+    }
+
+    /**
+     * 销毁组件
+     */
+    destroy(){
+        this.destructor()
+        this.boundingBox.off() //?
+        this.boundingBox.remove()
+        return this
+    }
 }
 class Window extends Widget{
     constructor() {
         super()
         //默认配置
-
         this.cfg = {
             title: "标题",
             content: "",
@@ -43,15 +106,55 @@ class Window extends Widget{
             draggable: true,
             dragHandle: ".window_header"
         }
+        //私有属性
+        this._mask = null //遮罩面板
     }
-    alert(cfg) {
+    alert(cfg){
         //配置属性
         $.extend(this.cfg, cfg)
+        this.render()
+        return this
+    }
 
+    destructor(){
+        this._mask && this._mask.remove()
+    }
+    /**
+     * 事件绑定
+     * @returns {Window}
+     */
+    bindUI(){
+
+        //绑定自定义事件
+        this.on('confirm',()=>{
+            this.cfg.handler4ConfirmBtn && this.cfg.handler4ConfirmBtn()
+        })
+        this.on('close',()=>{
+            this.cfg.handler4CloseBtn && this.cfg.handler4CloseBtn()
+        })
+
+        //绑定系统事件
+        this.boundingBox.on('click',".window_confirm_btn",()=>{
+            //触发自定义事件
+            this.fire('close')
+            this.destroy()
+        }).on('click',".window_close_btn",()=>{
+            this.fire('confirm')
+            this.destroy()
+        })
+        return this
+    }
+
+    /**
+     * 添加dom节点
+     * @param cfg
+     * @returns {Window}
+     */
+    renderUI(cfg) {
         let $boundingBox = $('<div></div>')
             .addClass('window_boundingBox')
         $boundingBox.appendTo($('body'))
-
+        this.boundingBox = $boundingBox
         //创建内部组件
         $("<div></div>")
             .addClass('window_header')
@@ -71,65 +174,44 @@ class Window extends Widget{
             .addClass('window_confirm_btn')
             .appendTo($window_footer)
         //判断是否有遮罩层
-        let mask = null
         if (this.cfg.hasMask) {
-            mask = $('<div class="window_mask"></div>')
-            mask.appendTo("body")
-        }
-        //判断是否需要拖动
-        if (this.cfg.draggable) {
-            if (this.cfg.dragHandle) {
-                $boundingBox.draggable({
-                    handle: this.cfg.dragHandle,
-                })
-            } else {
-                $boundingBox.draggable()
-            }
+            this._mask = $('<div class="window_mask"></div>')
+            this._mask.appendTo("body")
         }
 
-        //绑定自定义事件
-        this.on('confirm',()=>{
-            this.cfg.handler4ConfirmBtn && this.cfg.handler4ConfirmBtn()
-        })
-        this.on('close',()=>{
-            this.cfg.handler4CloseBtn && this.cfg.handler4CloseBtn()
-        })
-
-        //绑定系统事件
-        let confirmBtn = $boundingBox.find('.window_footer input')
-        confirmBtn.click(()=> {
-            //触发自定义事件
-            this.fire('close')
-            mask && mask.remove()
-            $boundingBox.remove()
-        })
         //判断是否创建关闭按钮
         if (this.cfg.hasCloseBtn) {
             $('<input type="button" value="X">')
                 .addClass('window_close_btn')
                 .text('X')
                 .appendTo($boundingBox)
-            let closeBtn = $boundingBox.find('.window_close_btn')
-            closeBtn.click(()=> {
-                this.fire('confirm')
-                mask && mask.remove()
-                $boundingBox.remove()
-            })
-        }
 
-        //设置皮肤
-        if (this.cfg.skinClassName) {
-            $boundingBox.addClass(this.cfg.skinClassName)
         }
-
+        return this
+    }
+    syncUI(){
         //设置样式
-        $boundingBox.css({
+        this.boundingBox.css({
             width: this.cfg.width + 'px',
             height: this.cfg.height + 'px',
             left: this.cfg.x || '50%',
             top: this.cfg.y || '50%'
         })
-        return this 
+        //设置皮肤
+        if (this.cfg.skinClassName) {
+            this.boundingBox.addClass(this.cfg.skinClassName)
+        }
+        //判断是否需要拖动
+        if (this.cfg.draggable) {
+            if (this.cfg.dragHandle) {
+                this.boundingBox.draggable({
+                    handle: this.cfg.dragHandle,
+                })
+            } else {
+                this.boundingBox.draggable()
+            }
+        }
+        return this
     }
     
 }
@@ -150,7 +232,8 @@ class Application {
                 handler4CloseBtn: function () {
                     alert('你点击了关闭按钮')
                 },
-                hasCloseBtn: true
+                hasCloseBtn: true,
+                hasMask: true
             })
                 .on('confirm',() =>{console.log('log: confirm')})
                 .on('close',() => {console.log('log:close')})
