@@ -145,8 +145,8 @@ class Application {
                 },
                 hasCloseBtn: true
             })
-            win.on('confirm',() =>{console.log('log: confirm')})
-            win.on('close',() => {console.log('log:close')})
+                .on('confirm',() =>{console.log('log: confirm')})
+                .on('close',() => {console.log('log:close')})
         })
     }
 }
