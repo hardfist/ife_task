@@ -123,6 +123,11 @@ class Ship{
 
     }
 }
+class Console{
+    log(msg){
+
+    }
+}
 class Application{
     constructor(){
         this.init()
