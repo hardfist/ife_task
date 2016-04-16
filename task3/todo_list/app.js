@@ -1,32 +1,6 @@
 /**
  * Created by yj on 16/4/16.
  */
-class Event{
-    constructor(){
-        this._listeners = []
-    }
-    on(type,handler){
-      this._listeners.push({type,handler})
-    }
-    fire(state){
-        for(let {type,handler} of this._listeners){
-            handler(state)
-        }
-    }
-}
-class Store extends Event{
-    constructor(){
-        super()
-        this._state = state
-    }
-    setState(state){
-        this._state = state
-        this.fire(state)
-    }
-    getState(){
-        return this._state
-    }
-}
 function createElement(tag,attrs,children){
     let $el = $(`<${tag}>`)
     for(let key in  attrs){
@@ -64,25 +38,11 @@ function render(props,node){
         })
         store.setState(state)
     }
-    (node || $('body')).empty().append(ItemList({
+    node.empty().append(ItemList({
         items: props.items,
         onUpdate: updateState
     }))
 }
-let state = {items: [],id: 0}
-let store = new Store(state)
-store.on('rootRender',function(state){
-    render(state,$('#list'))
-})
-$('#list').on('click','.item',function(){
-    let toggleId = parseInt($(this).attr('id'))
-    state.items.forEach(function(el){
-        if(el.id === toggleId){
-            el.completed = !el.completed
-        }
-    })
-    store.setState($.extend({},state))
-})
 function SearchBar(props){
     function onButtonClick(e){
         var val = $('#input').val()
@@ -97,13 +57,51 @@ function SearchBar(props){
     },'Add')
     return createElement('div',{},[input,button])
 }
-var bar = SearchBar({
-    update:function(val){
-        state.items.push({
-            id: state.id++,
-            text:val
-        })
-        store.setState(state)
+function App(props){
+    function getInitialState(props){
+        return {
+            items: [],
+            id: 0
+        }
     }
-})
-$('#app').append(bar).append($('<ul id="list">'))
+    var _state = getInitialState(),
+        _node = null;
+    function setState(state){
+        _state = state
+        render()
+    }
+    function updateSearchState(value){
+        _state.items.push({
+            id: _state.id++,
+            text: value,
+            completed: false
+        })
+        setState(_state)
+    }
+    function updateState(toggleId){
+        _state.items.forEach(function(el){
+            if(el.id === toggleId){
+                el.completed = !el.completed
+            }
+        })
+        setState(_state)
+    }
+    function render(){
+        var children= [SearchBar({
+            update: updateSearchState
+        }),ItemList({
+            items: _state.items,
+            onUpdate: updateState
+        })]
+        if(!_node){
+            return _node = createElement('div',{class: 'main'},children)
+        }else{
+            return _node.html(children)
+        }
+    }
+    return render()
+}
+function render(component,node){
+    node.empty().append(component)
+}
+render(App(),$('#app'))
