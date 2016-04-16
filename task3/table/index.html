@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        table td,
+        table th{
+            width: 100px;
+            height: 40px;
+        }
+        table td{
+            text-align: center;
+            vertical-align: middle;
+        }
+        table thead td{
+            position: relative;
+        }
+        table tfoot span,
+        table tfoot a{
+            border: 1px solid black;
+            margin-left: 10px;
+            background: antiquewhite;
+        }
+        table tfoot a.selected{
+            background: red;
+        }
+        table tfoot span.disabled{
+            background: grey;
+        }
+        table tbody tr:hover{
+            background: orange;
+        }
+        .up{
+            position: absolute;
+            color: #f00;
+            background: antiquewhite;
+            display: inline-block;
+        }
+        .down{
+            position: absolute;
+            color: #0f0;
+            background: antiquewhite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>成绩</th>
+    </tr>
+    </thead>
+    <tfoot>
+
+    </tfoot>
+    <tbody>
+    <tr>
+        <td>张三1</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>李四2</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>王二3</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>张三4</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>李四5</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>王二6</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>张三7</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>李四8</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>王二9</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>张三10</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>李四11</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>王二12</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>张三13</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>李四14</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>王二15</td>
+        <td>30</td>
+    </tr>
+    </tbody>
+</table>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+
+</body>
+</html>
